@@ -1,0 +1,494 @@
+{
+  "meta" : {
+    "view" : {
+      "id" : "ncbg-6agr",
+      "name" : "DOF Parking Violation Codes",
+      "attribution" : "Department of Finance (DOF)",
+      "attributionLink" : "http://www.nyc.gov/html/dof/html/parking/violation_codes.shtml",
+      "averageRating" : 0,
+      "category" : "Transportation",
+      "createdAt" : 1358348218,
+      "description" : "This dataset defines the parking violation codes in New York City and lists the fines. Each fine amount includes a $15 New York State Criminal Justice surcharge.",
+      "displayType" : "table",
+      "downloadCount" : 5274,
+      "hideFromCatalog" : false,
+      "hideFromDataJson" : false,
+      "indexUpdatedAt" : 1543599151,
+      "newBackend" : true,
+      "numberOfComments" : 1,
+      "oid" : 2252771,
+      "provenance" : "official",
+      "publicationAppendEnabled" : false,
+      "publicationDate" : 1358356235,
+      "publicationGroup" : 617923,
+      "publicationStage" : "published",
+      "rowClass" : "",
+      "rowsUpdatedAt" : 1543531077,
+      "rowsUpdatedBy" : "d5dp-fses",
+      "tableId" : 618112,
+      "totalTimesRated" : 0,
+      "viewCount" : 33460,
+      "viewLastModified" : 1543599131,
+      "viewType" : "tabular",
+      "columns" : [ {
+        "id" : -1,
+        "name" : "sid",
+        "dataTypeName" : "meta_data",
+        "fieldName" : ":sid",
+        "position" : 0,
+        "renderTypeName" : "meta_data",
+        "format" : { },
+        "flags" : [ "hidden" ]
+      }, {
+        "id" : -1,
+        "name" : "id",
+        "dataTypeName" : "meta_data",
+        "fieldName" : ":id",
+        "position" : 0,
+        "renderTypeName" : "meta_data",
+        "format" : { },
+        "flags" : [ "hidden" ]
+      }, {
+        "id" : -1,
+        "name" : "position",
+        "dataTypeName" : "meta_data",
+        "fieldName" : ":position",
+        "position" : 0,
+        "renderTypeName" : "meta_data",
+        "format" : { },
+        "flags" : [ "hidden" ]
+      }, {
+        "id" : -1,
+        "name" : "created_at",
+        "dataTypeName" : "meta_data",
+        "fieldName" : ":created_at",
+        "position" : 0,
+        "renderTypeName" : "meta_data",
+        "format" : { },
+        "flags" : [ "hidden" ]
+      }, {
+        "id" : -1,
+        "name" : "created_meta",
+        "dataTypeName" : "meta_data",
+        "fieldName" : ":created_meta",
+        "position" : 0,
+        "renderTypeName" : "meta_data",
+        "format" : { },
+        "flags" : [ "hidden" ]
+      }, {
+        "id" : -1,
+        "name" : "updated_at",
+        "dataTypeName" : "meta_data",
+        "fieldName" : ":updated_at",
+        "position" : 0,
+        "renderTypeName" : "meta_data",
+        "format" : { },
+        "flags" : [ "hidden" ]
+      }, {
+        "id" : -1,
+        "name" : "updated_meta",
+        "dataTypeName" : "meta_data",
+        "fieldName" : ":updated_meta",
+        "position" : 0,
+        "renderTypeName" : "meta_data",
+        "format" : { },
+        "flags" : [ "hidden" ]
+      }, {
+        "id" : -1,
+        "name" : "meta",
+        "dataTypeName" : "meta_data",
+        "fieldName" : ":meta",
+        "position" : 0,
+        "renderTypeName" : "meta_data",
+        "format" : { },
+        "flags" : [ "hidden" ]
+      }, {
+        "id" : 39448049,
+        "name" : "CODE",
+        "dataTypeName" : "text",
+        "fieldName" : "code",
+        "position" : 1,
+        "renderTypeName" : "text",
+        "tableColumnId" : 6973912,
+        "width" : 82,
+        "cachedContents" : {
+          "largest" : "99",
+          "non_null" : 97,
+          "null" : 0,
+          "top" : [ {
+            "item" : "83",
+            "count" : 20
+          }, {
+            "item" : "84",
+            "count" : 19
+          }, {
+            "item" : "85",
+            "count" : 18
+          }, {
+            "item" : "86",
+            "count" : 17
+          }, {
+            "item" : "87",
+            "count" : 16
+          }, {
+            "item" : "88",
+            "count" : 15
+          }, {
+            "item" : "89",
+            "count" : 14
+          }, {
+            "item" : "90",
+            "count" : 13
+          }, {
+            "item" : "91",
+            "count" : 12
+          }, {
+            "item" : "92",
+            "count" : 11
+          }, {
+            "item" : "93",
+            "count" : 10
+          }, {
+            "item" : "96",
+            "count" : 9
+          }, {
+            "item" : "97",
+            "count" : 8
+          }, {
+            "item" : "98",
+            "count" : 7
+          }, {
+            "item" : "99",
+            "count" : 6
+          } ],
+          "smallest" : "1"
+        },
+        "format" : { }
+      }, {
+        "id" : 39448050,
+        "name" : "DEFINITION",
+        "dataTypeName" : "text",
+        "fieldName" : "definition",
+        "position" : 2,
+        "renderTypeName" : "text",
+        "tableColumnId" : 6973913,
+        "width" : 610,
+        "cachedContents" : {
+          "largest" : "WRONG WAY",
+          "non_null" : 97,
+          "null" : 0,
+          "top" : [ {
+            "item" : "IMPROPER REGISTRATION",
+            "count" : 20
+          }, {
+            "item" : "PLTFRM LFTS LWRD POS COMM VEH",
+            "count" : 19
+          }, {
+            "item" : "STORAGE-3HR COMMERCIAL",
+            "count" : 18
+          }, {
+            "item" : "MIDTOWN PKG OR STD-3HR LIMIT",
+            "count" : 17
+          }, {
+            "item" : "UNALTERED COMM VEHICLE",
+            "count" : 16
+          }, {
+            "item" : "UNALTERED COMM VEH-NME/ADDRESS",
+            "count" : 15
+          }, {
+            "item" : "NO STD(EXC TRKS/GMTDST NO-TRK)",
+            "count" : 14
+          }, {
+            "item" : "VEH-SALE/WSHNG/RPRNG/DRIVEWAY",
+            "count" : 13
+          }, {
+            "item" : "VEHICLE FOR SALE(DEALERS ONLY)",
+            "count" : 12
+          }, {
+            "item" : "WASH/REPAIR VEHCL-REPAIR ONLY",
+            "count" : 11
+          }, {
+            "item" : "REMOVE/REPLACE FLAT TIRE",
+            "count" : 10
+          }, {
+            "item" : "RAILROAD CROSSING",
+            "count" : 9
+          }, {
+            "item" : "VACANT LOT",
+            "count" : 8
+          }, {
+            "item" : "OBSTRUCTING DRIVEWAY",
+            "count" : 7
+          }, {
+            "item" : "OTHER",
+            "count" : 6
+          } ],
+          "smallest" : "ALTERING INTERCITY BUS PERMIT"
+        },
+        "format" : { }
+      }, {
+        "id" : 39448051,
+        "name" : "Manhattan  96th St. & below",
+        "dataTypeName" : "text",
+        "fieldName" : "manhattan_96th_st_below",
+        "position" : 3,
+        "renderTypeName" : "text",
+        "tableColumnId" : 6973914,
+        "width" : 222,
+        "cachedContents" : {
+          "largest" : "95",
+          "non_null" : 97,
+          "null" : 0,
+          "top" : [ {
+            "item" : "515",
+            "count" : 20
+          }, {
+            "item" : "115",
+            "count" : 19
+          }, {
+            "item" : "265",
+            "count" : 18
+          }, {
+            "item" : "50",
+            "count" : 17
+          }, {
+            "item" : "95",
+            "count" : 16
+          }, {
+            "item" : "65",
+            "count" : 15
+          }, {
+            "item" : "180",
+            "count" : 14
+          }, {
+            "item" : "0",
+            "count" : 13
+          }, {
+            "item" : "165",
+            "count" : 12
+          }, {
+            "item" : "60",
+            "count" : 11
+          }, {
+            "item" : "40",
+            "count" : 10
+          }, {
+            "item" : "105",
+            "count" : 9
+          } ],
+          "smallest" : "0"
+        },
+        "format" : { }
+      }, {
+        "id" : 39448052,
+        "name" : "All Other Areas",
+        "dataTypeName" : "text",
+        "fieldName" : "all_other_areas",
+        "position" : 4,
+        "renderTypeName" : "text",
+        "tableColumnId" : 6973915,
+        "width" : 214,
+        "cachedContents" : {
+          "largest" : "95",
+          "non_null" : 97,
+          "null" : 0,
+          "top" : [ {
+            "item" : "515",
+            "count" : 20
+          }, {
+            "item" : "115",
+            "count" : 19
+          }, {
+            "item" : "265",
+            "count" : 18
+          }, {
+            "item" : "50",
+            "count" : 17
+          }, {
+            "item" : "95",
+            "count" : 16
+          }, {
+            "item" : "60",
+            "count" : 15
+          }, {
+            "item" : "45",
+            "count" : 14
+          }, {
+            "item" : "180",
+            "count" : 13
+          }, {
+            "item" : "35",
+            "count" : 12
+          }, {
+            "item" : "0",
+            "count" : 11
+          }, {
+            "item" : "65",
+            "count" : 10
+          }, {
+            "item" : "165",
+            "count" : 9
+          }, {
+            "item" : "25",
+            "count" : 8
+          }, {
+            "item" : "105",
+            "count" : 7
+          } ],
+          "smallest" : "0"
+        },
+        "format" : { }
+      } ],
+      "grants" : [ {
+        "inherited" : false,
+        "type" : "viewer",
+        "flags" : [ "public" ]
+      } ],
+      "metadata" : {
+        "rdfSubject" : "0",
+        "rdfClass" : "",
+        "attachments" : [ {
+          "filename" : "ParkingViolationCodes_Nov_2018.xlsx",
+          "assetId" : "fd2a27a0-990d-444d-a425-68ddd927ce4a",
+          "name" : "ParkingViolationCodes_Nov_2018.xlsx"
+        } ],
+        "custom_fields" : {
+          "Update" : {
+            "Automation" : "No",
+            "Date Made Public" : "1/16/2013",
+            "Update Frequency" : "Annually"
+          },
+          "Dataset Information" : {
+            "Agency" : "Department of Finance (DOF)"
+          }
+        },
+        "rowIdentifier" : "0",
+        "rowLabel" : "",
+        "availableDisplayTypes" : [ "table", "fatrow", "page" ],
+        "renderTypeConfig" : {
+          "visible" : {
+            "table" : true
+          }
+        }
+      },
+      "owner" : {
+        "id" : "5fuc-pqz2",
+        "displayName" : "NYC OpenData",
+        "profileImageUrlLarge" : "/api/users/5fuc-pqz2/profile_images/LARGE",
+        "profileImageUrlMedium" : "/api/users/5fuc-pqz2/profile_images/THUMB",
+        "profileImageUrlSmall" : "/api/users/5fuc-pqz2/profile_images/TINY",
+        "screenName" : "NYC OpenData",
+        "type" : "interactive",
+        "flags" : [ "mayBeStoriesCoOwner" ]
+      },
+      "query" : { },
+      "rights" : [ "read" ],
+      "tableAuthor" : {
+        "id" : "8b43-zkvh",
+        "displayName" : "Ram S.",
+        "screenName" : "Ram S.",
+        "type" : "interactive"
+      },
+      "tags" : [ "dof", "parking", "violation", "code", "fine" ],
+      "flags" : [ "default", "restorable", "restorePossibleForType" ]
+    }
+  },
+  "data" : [ [ "row-vc2y~qug8_qh44", "00000000-0000-0000-CF04-70C75CE907FB", 0, 1543534678, null, 1543534678, null, "{ }", "30", "NO STOP/STANDNG EXCEPT PAS P/U", "515", "515" ]
+, [ "row-hrgr_sw3r_ufn3", "00000000-0000-0000-EE25-9878F591F400", 0, 1543534678, null, 1543534678, null, "{ }", "60", "ANGLE PARKING", "65", "45" ]
+, [ "row-cwgy-gw5r~4j8h", "00000000-0000-0000-FC3B-03C36194E08F", 0, 1543534678, null, 1543534678, null, "{ }", "13", "NO STANDING-TAXI STAND", "115", "115" ]
+, [ "row-ncun-9t2m.uk32", "00000000-0000-0000-3AE7-57280C885EFC", 0, 1543534678, null, 1543534678, null, "{ }", "73", "REG STICKER-MUTILATED/C'FEIT", "65", "65" ]
+, [ "row-i849~4xfg-mseb", "00000000-0000-0000-2D93-9B8CC176605B", 0, 1543534678, null, 1543534678, null, "{ }", "38", "FAIL TO DSPLY MUNI METER RECPT", "65", "35" ]
+, [ "row-3zsa.d73x.kkk7", "00000000-0000-0000-C86D-A0342C88C626", 0, 1543534678, null, 1543534678, null, "{ }", "97", "VACANT LOT", "65", "45" ]
+, [ "row-de9m-pz85~yt2d", "00000000-0000-0000-7D62-B8BF60D56893", 0, 1543534678, null, 1543534678, null, "{ }", "32", "OT PARKING-MISSING/BROKEN METR", "65", "35" ]
+, [ "row-kxv6-5zru.j7e4", "00000000-0000-0000-7D6F-70AA0FA9EA4B", 0, 1543534678, null, 1543534678, null, "{ }", "27", "NO PARKING-EXC. DSBLTY PERMIT", "180", "180" ]
+, [ "row-fkwe.nhwz.7hpt", "00000000-0000-0000-2C67-39732F9314B2", 0, 1543534678, null, 1543534678, null, "{ }", "77", "PARKED BUS-EXC. DESIG. AREA", "65", "45" ]
+, [ "row-puin~hpuv~6qra", "00000000-0000-0000-9FAA-6D32E95C9BAA", 0, 1543534678, null, 1543534678, null, "{ }", "84", "PLTFRM LFTS LWRD POS COMM VEH", "65", "45" ]
+, [ "row-9pdm.5i7z-s8tc", "00000000-0000-0000-B1F9-7C8E43AB78D6", 0, 1543534678, null, 1543534678, null, "{ }", "26", "NO STANDING-FOR HIRE VEH STND", "115", "115" ]
+, [ "row-cqva.mhc2.9t6n", "00000000-0000-0000-4F5F-74EADF8D2F05", 0, 1543534678, null, 1543534678, null, "{ }", "44", "PKG IN EXC. OF LIM-COMM MTR ZN", "65", "35" ]
+, [ "row-ivmg_svrs~f32n", "00000000-0000-0000-1A9D-B86526E0754F", 0, 1543534678, null, 1543534678, null, "{ }", "25", "NO STANDING-COMMUTER VAN STOP", "115", "115" ]
+, [ "row-nfxj_hxg4~58id", "00000000-0000-0000-FD3F-6EC9E1E52D63", 0, 1543534678, null, 1543534678, null, "{ }", "78", "NGHT PKG ON RESID STR-COMM VEH", "65", "65" ]
+, [ "row-t8uz~zth9_s7se", "00000000-0000-0000-CD0D-A172BF626283", 0, 1543534678, null, 1543534678, null, "{ }", "4", "BUS PARKING IN LOWER MANHATTAN", "115", "115" ]
+, [ "row-jdzs~az64~6xsy", "00000000-0000-0000-5EBA-6C5EB446C073", 0, 1543534678, null, 1543534678, null, "{ }", "70", "REG. STICKER-EXPIRED/MISSING", "65", "65" ]
+, [ "row-eyv9.viec~mdaw", "00000000-0000-0000-3F4F-F3C8F5093DE6", 0, 1543534678, null, 1543534678, null, "{ }", "15", "NO STANDING-OFF-STREET LOT", "115", "115" ]
+, [ "row-h6wr.44rj_wi7c", "00000000-0000-0000-35D3-5C14250889A2", 0, 1543534678, null, 1543534678, null, "{ }", "54", "PCKP DSCHRGE IN PRHBTD ZONE", "115", "115" ]
+, [ "row-rfa2~4yse-ajxe", "00000000-0000-0000-6CF6-3CA7C18D8A5A", 0, 1543534678, null, 1543534678, null, "{ }", "20", "NO PARKING-DAY/TIME LIMITS", "65", "60" ]
+, [ "row-q2kn.gspj~yfrn", "00000000-0000-0000-7408-7EB26C073010", 0, 1543534678, null, 1543534678, null, "{ }", "67", "PEDESTRIAN RAMP", "165", "165" ]
+, [ "row-2uvf.yqvn-vhwj", "00000000-0000-0000-72A4-142576616BDA", 0, 1543534678, null, 1543534678, null, "{ }", "80", "MISSING EQUIPMENT", "60", "45" ]
+, [ "row-j575.7fgt-cj7q", "00000000-0000-0000-0C32-78A452F32A10", 0, 1543534678, null, 1543534678, null, "{ }", "49", "EXCAVATION-VEHICLE OBSTR TRAFF", "95", "95" ]
+, [ "row-f7ik.3n5j_z6uq", "00000000-0000-0000-EB3E-E4392198DA83", 0, 1543534678, null, 1543534678, null, "{ }", "79", "UNAUTHORIZED BUS LAYOVER", "115", "115" ]
+, [ "row-6kja~7zst_5n5f", "00000000-0000-0000-986C-689AE12D76FC", 0, 1543534678, null, 1543534678, null, "{ }", "72", "INSP STICKER-MUTILATED/C'FEIT", "65", "65" ]
+, [ "row-2f2b~yega-zcqk", "00000000-0000-0000-E528-EFF53A71033B", 0, 1543534678, null, 1543534678, null, "{ }", "7", "FAILURE TO STOP AT RED LIGHT", "50", "50" ]
+, [ "row-5kjd.4et8_vwqi", "00000000-0000-0000-A74C-CC5B95B0BA71", 0, 1543534678, null, 1543534678, null, "{ }", "16", "NO STANDING-EXC. TRUCK LOADING", "95", "95" ]
+, [ "row-tawu~36nf-8fuf", "00000000-0000-0000-FE9E-136A5B4D631C", 0, 1543534678, null, 1543534678, null, "{ }", "92", "WASH/REPAIR VEHCL-REPAIR ONLY", "65", "45" ]
+, [ "row-e9g7.udji_f8ek", "00000000-0000-0000-BA03-4F61906EA1A0", 0, 1543534678, null, 1543534678, null, "{ }", "23", "NO PARKING-TAXI STAND", "65", "60" ]
+, [ "row-hvc2.t4v2.9bna", "00000000-0000-0000-3D02-0AE71E6B68FC", 0, 1543534678, null, 1543534678, null, "{ }", "2", "NO OPERATOR NAM/ADD/PH DISPLAY", "515", "515" ]
+, [ "row-yi82_3343.fdup", "00000000-0000-0000-2136-3F0601930445", 0, 1543534678, null, 1543534678, null, "{ }", "17", "NO STANDING-EXC. AUTH. VEHICLE", "95", "95" ]
+, [ "row-i8s8~kqmi_sivy", "00000000-0000-0000-35C4-3020BD45042C", 0, 1543534678, null, 1543534678, null, "{ }", "82", "COMML PLATES-UNALTERED VEHICLE", "115", "115" ]
+, [ "row-vnz6_czep-h76w", "00000000-0000-0000-D360-B98334E9DCB9", 0, 1543534678, null, 1543534678, null, "{ }", "99", "OTHER", "105", "105" ]
+, [ "row-uqyk-piks-whfu", "00000000-0000-0000-5BA2-A31E48681673", 0, 1543534678, null, 1543534678, null, "{ }", "66", "DETACHED TRAILER", "65", "45" ]
+, [ "row-p7pq.zpv4~9rgf", "00000000-0000-0000-502E-3E92A69D6DC9", 0, 1543534678, null, 1543534678, null, "{ }", "71", "INSP. STICKER-EXPIRED/MISSING", "65", "65" ]
+, [ "row-d3iy.7emg~k78a", "00000000-0000-0000-5AB1-044B9743B030", 0, 1543534678, null, 1543534678, null, "{ }", "29", "ALTERING INTERCITY BUS PERMIT", "515", "515" ]
+, [ "row-hw2y.ihqf.2rbi", "00000000-0000-0000-04D4-8A2B6C6E0BDE", 0, 1543534678, null, 1543534678, null, "{ }", "45", "TRAFFIC LANE", "115", "115" ]
+, [ "row-y7p3-5qj3~sfjt", "00000000-0000-0000-4B12-A715C606C63F", 0, 1543534678, null, 1543534678, null, "{ }", "18", "NO STANDING-BUS LANE", "115", "115" ]
+, [ "row-fwus~e99t-9qj6", "00000000-0000-0000-F748-67F42985AED3", 0, 1543534678, null, 1543534678, null, "{ }", "41", "MISCELLANEOUS", "0", "0" ]
+, [ "row-hpzs~zie2_hztg", "00000000-0000-0000-EEC3-02EFEB89EF32", 0, 1543534678, null, 1543534678, null, "{ }", "36", "PHTO SCHOOL ZN SPEED VIOLATION", "50", "50" ]
+, [ "row-824r~xbgg-qa4v", "00000000-0000-0000-95A0-4DE6C0D14FD6", 0, 1543534678, null, 1543534678, null, "{ }", "76", "VIN OBSCURED", "65", "65" ]
+, [ "row-9j2h.5qm5_8m7n", "00000000-0000-0000-C49D-1DB1F201CD23", 0, 1543534678, null, 1543534678, null, "{ }", "35", "SELLING/OFFERING MCHNDSE-METER", "65", "35" ]
+, [ "row-bnvy~kd8s_s3a6", "00000000-0000-0000-54CE-BA38B5C237D3", 0, 1543534678, null, 1543534678, null, "{ }", "57", "BLUE ZONE", "65", "65" ]
+, [ "row-er3m-9h97-sarh", "00000000-0000-0000-0D7B-2BC39792D8D0", 0, 1543534678, null, 1543534678, null, "{ }", "37", "EXPIRED MUNI METER", "65", "35" ]
+, [ "row-bs7r~ac3u~wgvg", "00000000-0000-0000-2A9B-5AE1169198E5", 0, 1543534678, null, 1543534678, null, "{ }", "64", "NO STANDING EXCP D/S", "95", "95" ]
+, [ "row-j6qa-jmzb-ksic", "00000000-0000-0000-FACB-EB68E08F9791", 0, 1543534678, null, 1543534678, null, "{ }", "65", "OVERTIME STDG D/S", "95", "95" ]
+, [ "row-fsng~4ui6.wcai", "00000000-0000-0000-BFE8-40A042DCD124", 0, 1543534678, null, 1543534678, null, "{ }", "10", "NO STOPPING-DAY/TIME LIMITS", "115", "115" ]
+, [ "row-cbuh_uu8z~cbvg", "00000000-0000-0000-13CB-4B213E9CCF7F", 0, 1543534678, null, 1543534678, null, "{ }", "96", "RAILROAD CROSSING", "95", "95" ]
+, [ "row-stpa_az9f~9kwg", "00000000-0000-0000-87E4-9807F98C9D07", 0, 1543534678, null, 1543534678, null, "{ }", "43", "EXPIRED METER-COMM METER ZONE", "65", "35" ]
+, [ "row-9cb7_7cmd_ctbc", "00000000-0000-0000-647C-E6B609400BDC", 0, 1543534678, null, 1543534678, null, "{ }", "68", "NON-COMPLIANCE W/ POSTED SIGN", "65", "60" ]
+, [ "row-rgp7.uja4~r7jw", "00000000-0000-0000-0BAD-FDE7C69663C2", 0, 1543534678, null, 1543534678, null, "{ }", "98", "OBSTRUCTING DRIVEWAY", "95", "95" ]
+, [ "row-epq2-557q_7ush", "00000000-0000-0000-5FF7-3B0F0B9602E7", 0, 1543534678, null, 1543534678, null, "{ }", "6", "OVERNIGHT TRACTOR TRAILER PKG", "265", "265" ]
+, [ "row-gexs-k92d_w78s", "00000000-0000-0000-4676-7C36CE434803", 0, 1543534678, null, 1543534678, null, "{ }", "93", "REMOVE/REPLACE FLAT TIRE", "65", "65" ]
+, [ "row-2pyh~6x3r~5m2e", "00000000-0000-0000-69D9-70D2FB6C56BB", 0, 1543534678, null, 1543534678, null, "{ }", "69", "FAIL TO DISP. MUNI METER RECPT", "65", "35" ]
+, [ "row-rim2_fkj4_5g8c", "00000000-0000-0000-4671-AB3816BC0E99", 0, 1543534678, null, 1543534678, null, "{ }", "83", "IMPROPER REGISTRATION", "65", "65" ]
+, [ "row-icmw.qghg_9im2", "00000000-0000-0000-E200-A0376233CB40", 0, 1543534678, null, 1543534678, null, "{ }", "3", "UNAUTHORIZED PASSENGER PICK-UP", "515", "515" ]
+, [ "row-7vj7.cg3m~t6w3", "00000000-0000-0000-AA68-E30183A99ED3", 0, 1543534678, null, 1543534678, null, "{ }", "50", "CROSSWALK", "115", "115" ]
+, [ "row-a62a.pkqv~35z2", "00000000-0000-0000-53E9-9AE8A28CAAE5", 0, 1543534678, null, 1543534678, null, "{ }", "9", "OBSTRUCTING TRAFFIC/INTERSECT", "115", "115" ]
+, [ "row-b77r-hqvb~qx8c", "00000000-0000-0000-4C21-A699269EAE9C", 0, 1543534678, null, 1543534678, null, "{ }", "19", "NO STANDING-BUS STOP", "115", "115" ]
+, [ "row-6dsp_4v5i~sh6q", "00000000-0000-0000-3372-7C7C5F556D23", 0, 1543534678, null, 1543534678, null, "{ }", "55", "ELEVATED/DIVIDED HIGHWAY/TUNNL", "115", "115" ]
+, [ "row-4fk6-m8pv_h8h7", "00000000-0000-0000-CEE6-76DEB8CCACD2", 0, 1543534678, null, 1543534678, null, "{ }", "63", "NIGHTTIME STD/ PKG IN A PARK", "95", "95" ]
+, [ "row-vghe~jccv~vhh9", "00000000-0000-0000-092B-58EA3DCE3E31", 0, 1543534678, null, 1543534678, null, "{ }", "40", "FIRE HYDRANT", "115", "115" ]
+, [ "row-v2gd.kcwm~xmix", "00000000-0000-0000-E80B-6A8243EE9AC3", 0, 1543534678, null, 1543534678, null, "{ }", "52", "INTERSECTION", "115", "115" ]
+, [ "row-mzry-akky.yssx", "00000000-0000-0000-42AA-D843DA54F05E", 0, 1543534678, null, 1543534678, null, "{ }", "56", "DIVIDED HIGHWAY", "115", "115" ]
+, [ "row-stmi_rcm6_v467", "00000000-0000-0000-1059-03EAB74F6893", 0, 1543534678, null, 1543534678, null, "{ }", "39", "OVERTIME PKG-TIME LIMIT POSTED", "65", "60" ]
+, [ "row-2wje~deqq-ihn3", "00000000-0000-0000-C21E-8F254B0C33A7", 0, 1543534678, null, 1543534678, null, "{ }", "75", "NO MATCH-PLATE/STICKER", "65", "65" ]
+, [ "row-p5qa_92ip-cgg5", "00000000-0000-0000-EF73-465D12CD8E44", 0, 1543534678, null, 1543534678, null, "{ }", "14", "NO STANDING-DAY/TIME LIMITS", "115", "115" ]
+, [ "row-rn8p_be89_z5en", "00000000-0000-0000-0C64-4C20B4FE3EB8", 0, 1543534678, null, 1543534678, null, "{ }", "5", "BUS LANE VIOLATION", "115", "115" ]
+, [ "row-72i3_ba73-hgef", "00000000-0000-0000-7FB8-CF8EE47FC782", 0, 1543534678, null, 1543534678, null, "{ }", "88", "UNALTERED COMM VEH-NME/ADDRESS", "115", "115" ]
+, [ "row-xkca.x88r_w9f9", "00000000-0000-0000-04B9-9F0651ABA654", 0, 1543534678, null, 1543534678, null, "{ }", "59", "ANGLE PARKING-COMM VEHICLE", "115", "115" ]
+, [ "row-g569_9gmd~25w2", "00000000-0000-0000-C63E-0D55BBABA1BB", 0, 1543534678, null, 1543534678, null, "{ }", "91", "VEHICLE FOR SALE(DEALERS ONLY)", "65", "45" ]
+, [ "row-arvb~iwsa-k9v4", "00000000-0000-0000-DB7A-0E4B553DEC58", 0, 1543534678, null, 1543534678, null, "{ }", "42", "EXPIRED MUNI MTR-COMM MTR ZN", "65", "35" ]
+, [ "row-zjyg.74hd_hn2d", "00000000-0000-0000-1446-B4B9A60C3A91", 0, 1543534678, null, 1543534678, null, "{ }", "81", "NO STANDING EXCP DP", "95", "95" ]
+, [ "row-jd5g_nvqp.gk7b", "00000000-0000-0000-2A00-5B4571DA93DD", 0, 1543534678, null, 1543534678, null, "{ }", "48", "BIKE LANE", "115", "115" ]
+, [ "row-5k5z_ye4a.udzd", "00000000-0000-0000-4F02-0490C9B1C25C", 0, 1543534678, null, 1543534678, null, "{ }", "47", "DOUBLE PARKING-MIDTOWN COMML", "115", "115" ]
+, [ "row-n2tr_hkvq_z95x", "00000000-0000-0000-DA2B-C69BD41813F9", 0, 1543534678, null, 1543534678, null, "{ }", "51", "SIDEWALK", "115", "115" ]
+, [ "row-pszr-ye7r_6cb9", "00000000-0000-0000-4167-04E981D9413D", 0, 1543534678, null, 1543534678, null, "{ }", "90", "VEH-SALE/WSHNG/RPRNG/DRIVEWAY", "40", "25" ]
+, [ "row-gbrf-8ta9-z9me", "00000000-0000-0000-DEFF-232B5A78D6A5", 0, 1543534678, null, 1543534678, null, "{ }", "58", "MARGINAL STREET/WATER FRONT", "65", "45" ]
+, [ "row-qbsc.5ej6.p5pz", "00000000-0000-0000-01C8-666E8E5DAB50", 0, 1543534678, null, 1543534678, null, "{ }", "21", "NO PARKING-STREET CLEANING", "65", "45" ]
+, [ "row-57rb_u4x3~5rv3", "00000000-0000-0000-B41C-0A21FF736CD8", 0, 1543534678, null, 1543534678, null, "{ }", "34", "EXPIRED METER", "65", "35" ]
+, [ "row-j7n9_ehyt~34xs", "00000000-0000-0000-3945-0BD00D70ADE0", 0, 1543534678, null, 1543534678, null, "{ }", "31", "NO STANDING-COMM METER ZONE", "115", "115" ]
+, [ "row-39ew~jzai~3j32", "00000000-0000-0000-43C1-A7CEB45EA9C2", 0, 1543534678, null, 1543534678, null, "{ }", "86", "MIDTOWN PKG OR STD-3HR LIMIT", "115", "115" ]
+, [ "row-bi2r-es8j-7w9f", "00000000-0000-0000-B238-FE98D15CF0E7", 0, 1543534678, null, 1543534678, null, "{ }", "33", "FEEDING METER", "65", "35" ]
+, [ "row-kyey.kar8~4ayt", "00000000-0000-0000-8698-8133159721FC", 0, 1543534678, null, 1543534678, null, "{ }", "85", "STORAGE-3HR COMMERCIAL", "65", "65" ]
+, [ "row-8xye~55s5-psxt", "00000000-0000-0000-DE58-E34E95A2D0FF", 0, 1543534678, null, 1543534678, null, "{ }", "53", "SAFETY ZONE", "115", "115" ]
+, [ "row-r7n6.pq8y-gaa8", "00000000-0000-0000-2D25-B500F167AD38", 0, 1543534678, null, 1543534678, null, "{ }", "61", "WRONG WAY", "65", "45" ]
+, [ "row-6n22~nvk4~m4py", "00000000-0000-0000-24C6-D5ACDB599AAF", 0, 1543534678, null, 1543534678, null, "{ }", "8", "IDLING", "115", "115" ]
+, [ "row-it82-9z6h~scwk", "00000000-0000-0000-8584-4B96960521BB", 0, 1543534678, null, 1543534678, null, "{ }", "28", "OVERTIME STANDING DP", "95", "95" ]
+, [ "row-ufpx.4sag.re76", "00000000-0000-0000-3192-8291FDF34D11", 0, 1543534678, null, 1543534678, null, "{ }", "22", "NO STAND TAXI/FHV RELIEF STAND", "115", "115" ]
+, [ "row-u5v4-mvnv.vekp", "00000000-0000-0000-02B4-241ED841EF7B", 0, 1543534678, null, 1543534678, null, "{ }", "87", "UNALTERED COMM VEHICLE", "115", "115" ]
+, [ "row-dsx5_e74b~95a4", "00000000-0000-0000-CA63-9AB14A220755", 0, 1543534678, null, 1543534678, null, "{ }", "62", "BEYOND MARKED SPACE", "65", "45" ]
+, [ "row-9547-uwdr_3mjq", "00000000-0000-0000-7660-418612CB6001", 0, 1543534678, null, 1543534678, null, "{ }", "1", "FAILURE TO DISPLAY BUS PERMIT", "515", "515" ]
+, [ "row-qpdr.4x92_g7w3", "00000000-0000-0000-D671-94E4DE2F05EF", 0, 1543534678, null, 1543534678, null, "{ }", "24", "NO PARKING-EXC. AUTH. VEHICLE", "65", "60" ]
+, [ "row-yzvh-ehpy-q86u", "00000000-0000-0000-64E3-EDADBE29831B", 0, 1543534678, null, 1543534678, null, "{ }", "89", "NO STD(EXC TRKS/GMTDST NO-TRK)", "115", "115" ]
+, [ "row-tdzh~5nmq-ukhf", "00000000-0000-0000-26DC-E355A4E5C81F", 0, 1543534678, null, 1543534678, null, "{ }", "74", "FRONT OR BACK PLATE MISSING", "65", "65" ]
+, [ "row-4b6r~ib8a~3i36", "00000000-0000-0000-1C87-29CD0C8D1DFC", 0, 1543534678, null, 1543534678, null, "{ }", "46", "DOUBLE PARKING", "115", "115" ]
+, [ "row-g6kn-65xv~begd", "00000000-0000-0000-3614-107A8CED37D1", 0, 1543534678, null, 1543534678, null, "{ }", "11", "NO STANDING-HOTEL LOADING", "115", "115" ]
+, [ "row-25ci~bpb7_3zja", "00000000-0000-0000-C030-3F172DE8AB57", 0, 1543534678, null, 1543534678, null, "{ }", "12", "NO STANDING-SNOW EMERGENCY", "95", "95" ]
+ ]
+}
