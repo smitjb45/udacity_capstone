@@ -1,8 +1,9 @@
 import configparser
 from datetime import datetime
 import os
+import pandas as pd
 from pyspark.sql import SparkSession
-from pyspark.sql.functions import udf, Column
+from pyspark.sql.functions import udf, col, lit, concat
 from pyspark.sql.functions import year, month, dayofmonth, hour, weekofyear, date_format
 
 
@@ -20,6 +21,62 @@ def create_spark_session():
         .getOrCreate()
     return spark
 
+def process_vehicle_data(ticket_dataset, input_data, output_data):
+    """
+    pass in ticket data and create the vehicle table
+    :ticket_dataset: the main ticket dataframe
+    :param input_data: Input url
+    :param output_data: Output location
+    """
+    
+    df_vehicle_table = ticket_dataset.select(col('Plate ID').alias('plate_id'), col('Vehicle Make').alias('vehicle_make')\
+                                    ,col('Vehicle Body Type').alias('vehicle_body_type'), col('Vehicle Color').alias('vehicle_color')\
+                                    ,col('Vehicle Year').alias('vehicle_year'))
+
+def process_registration_data(ticket_dataset, input_data, output_data):
+    """
+    pass in ticket data and create the registration table
+    :ticket_dataset: the main ticket dataframe
+    :param input_data: Input url
+    :param output_data: Output location
+    """
+    
+    df_registration_table = ticket_dataset.select(col('Plate ID').alias('plate_id'), col('Plate Type').alias('plate_type')\
+                                         ,col('Registration State').alias('registration_state'), col('Vehicle Expiration Date').alias('registration_expired_date')\
+                                        ,col('Unregistered Vehicle?').alias('unregistered_vehicle'))
+    
+def process_violation_location_data(ticket_dataset, input_data, output_data):
+    """
+    pass in ticket data and create the violation location table
+    :ticket_dataset: the main ticket dataframe
+    :param input_data: Input url
+    :param output_data: Output location
+    """
+    
+    df_violation_location_table = ticket_dataset.select(col('Street Code1').alias('street_code1'), col('Street Code2').alias('street_code2')\
+                                         ,col('Street Code3').alias('street_code3'), col('Violation Precinct').alias('violation_precinct')\
+                                        ,col('Violation County').alias('violation_county'),col('House Number').alias('house_number')
+                                        ,col('Street Name').alias('street_name'),col('Days Parking In Effect    ').alias('parking_enforced_days')
+                                        ,col('From Hours In Effect').alias('from_enforced_hours'),col('To Hours In Effect').alias('to_enforced_hours'))
+    
+    
+    df_violation_location_table = df_violation_location_table.withColumn("street_code_key", \
+                                    concat(col("street_code1"), lit('-'),col("street_code2"), lit('-'),col("street_code3"))) 
+    
+
+def process_violation_location_data(ticket_dataset, input_data, output_data):
+    """
+    pass in ticket data and create the violation location table
+    :ticket_dataset: the main ticket dataframe
+    :param input_data: Input url
+    :param output_data: Output location
+    """
+    
+    df_violation_location_table = ticket_dataset.select(col('Street Code1').alias('street_code1'), col('Street Code2').alias('street_code2')\
+                                         ,col('Street Code3').alias('street_code3'), col('Violation Precinct').alias('violation_precinct')\
+                                        ,col('Violation County').alias('violation_county'),col('House Number').alias('house_number')
+                                        ,col('Street Name').alias('street_name'),col('Days Parking In Effect    ').alias('parking_enforced_days')
+                                        ,col('From Hours In Effect').alias('from_enforced_hours'),col('To Hours In Effect').alias('to_enforced_hours'))
 
 def process_song_data(spark, input_data, output_data):
     """
