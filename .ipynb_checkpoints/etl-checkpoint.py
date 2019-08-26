@@ -10,8 +10,8 @@ from pyspark.sql.functions import year, month, dayofmonth, hour, weekofyear, dat
 config = configparser.ConfigParser()
 config.read('dl.cfg')
 
-# os.environ['AWS_ACCESS_KEY_ID']=config.get('S3', 'AWS_ACCESS_KEY_ID')
-# os.environ['AWS_SECRET_ACCESS_KEY']=config.get('S3', 'AWS_SECRET_ACCESS_KEY')
+os.environ['AWS_ACCESS_KEY_ID']=config.get('S3', 'AWS_ACCESS_KEY_ID')
+os.environ['AWS_SECRET_ACCESS_KEY']=config.get('S3', 'AWS_SECRET_ACCESS_KEY')
 
 
 def create_spark_session():
@@ -39,6 +39,11 @@ def clean_json(json, spark):
     return df_codes_spark
 
 def is_data_quality_good(table_dataset, table_name):
+    """
+    pass in a table to check if it has duplicates or is empty
+    :ticket_dataset: the main ticket dataframe
+    :param table_name: name of the table being checked
+    """
    
     if table_dataset.count() == 0:
         print(r"{} Empty Table").format(table_name)
@@ -57,7 +62,6 @@ def process_vehicle_data(ticket_dataset, output_data):
     """
     pass in ticket data and create the vehicle table
     :ticket_dataset: the main ticket dataframe
-    :param input_data: Input url
     :param output_data: Output location
     """
     
@@ -75,7 +79,6 @@ def process_registration_data(ticket_dataset, output_data):
     """
     pass in ticket data and create the registration table
     :ticket_dataset: the main ticket dataframe
-    :param input_data: Input url
     :param output_data: Output location
     """
     
@@ -94,7 +97,6 @@ def process_violation_location_data(ticket_dataset, output_data):
     """
     pass in ticket data and create the violation location table
     :ticket_dataset: the main ticket dataframe
-    :param input_data: Input url
     :param output_data: Output location
     """
     
@@ -125,12 +127,19 @@ def process_codes_data(ticket_dataset, df_codes_spark, output_data):
     """
     pass in ticket data and create the violation location table
     :ticket_dataset: the main ticket dataframe
-    :param input_data: Input url
+    :param df_codes_spark: a spark dataframe with code definitions
     :param output_data: Output location
     """
     
-    df_codes_joined_spark = df_codes_spark.join(ticket_dataset.select(col('Law Section'), col('Sub Division'), col('Violation Code'))).where(ticket_dataset['Violation Code'] == df_codes_spark['Code'])
-    df_codes_joined_spark1 = df_codes_joined_spark.select(col('Code').alias('code'), col('Definition').alias('definition'), col('Law Section').alias('law_section'), col('Sub Division').alias('sub_division')).dropDuplicates()
+    df_codes_joined_spark = df_codes_spark.join(ticket_dataset.select(col('Law Section')\
+                                                                      ,col('Sub Division')\
+                                                                      ,col('Violation Code')))\
+                            .where(ticket_dataset['Violation Code'] == df_codes_spark['Code'])
+    
+    df_codes_joined_spark1 = df_codes_joined_spark.select(col('Code').alias('code')
+                                                          ,col('Definition').alias('definition')
+                                                          ,col('Law Section').alias('law_section')
+                                                          ,col('Sub Division').alias('sub_division')).dropDuplicates()
     
     df_codes_joined_spark1.write.parquet(output_data + "CodesTable.parquet")
     
@@ -139,7 +148,7 @@ def create_fact_ticket_location_data(ticket_dataset, df_violation_location_table
     """
     pass in ticket data and create the violation location table
     :ticket_dataset: the main ticket dataframe
-    :param input_data: Input url
+    :param df_violation_location_table: the violation location dataframe
     :param output_data: Output location
     """
     
@@ -148,7 +157,11 @@ def create_fact_ticket_location_data(ticket_dataset, df_violation_location_table
     & (ticket_dataset['Street Code2'] == df_violation_location_table['street_code2']) \
     & (ticket_dataset['Street Code3'] == df_violation_location_table['street_code3']))
     
-    final_ticket_fact = ticket_fact_df.select(col('Summons Number').alias('summons_number'), col('Plate ID').alias('plate_id'), col('Issue Date').alias('issue_date'), col('Violation Code').alias('violation_code'), col('street_code_key')).dropDuplicates()
+    final_ticket_fact = ticket_fact_df.select(col('Summons Number').alias('summons_number')\
+                                              ,col('Plate ID').alias('plate_id')\
+                                              ,col('Issue Date').alias('issue_date')\
+                                              ,col('Violation Code').alias('violation_code')\
+                                              ,col('street_code_key')).dropDuplicates()
     
     final_ticket_fact.write.partitionBy('issue_date').parquet(output_data + "TicketTable.parquet")
 
