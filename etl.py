@@ -129,13 +129,10 @@ def process_codes_data(ticket_dataset, df_codes_spark, output_data):
     :param output_data: Output location
     """
     
-    df_codes_joined_spark = df_codes_spark.join(\
-                            ticket_dataset.select(col('Law Section').alias('law_section'),\
-                                             col('Sub Division').alias('sub_division'),\
-                                             col('Violation Code').alias('violation_code')))\
-                            .where(ticket_dataset['Violation Code'] == df_codes_spark['Code']).dropDuplicates()
+    df_codes_joined_spark = df_codes_spark.join(ticket_dataset.select(col('Law Section'), col('Sub Division'), col('Violation Code'))).where(ticket_dataset['Violation Code'] == df_codes_spark['Code'])
+    df_codes_joined_spark1 = df_codes_joined_spark.select(col('Code').alias('code'), col('Definition').alias('definition'), col('Law Section').alias('law_section'), col('Sub Division').alias('sub_division')).dropDuplicates()
     
-    df_codes_joined_spark.write.parquet(output_data + "CodesTable.parquet")
+    df_codes_joined_spark1.write.parquet(output_data + "CodesTable.parquet")
     
     
 def create_fact_ticket_location_data(ticket_dataset, df_violation_location_table, output_data):
@@ -147,11 +144,11 @@ def create_fact_ticket_location_data(ticket_dataset, df_violation_location_table
     """
     
     ticket_fact_df = ticket_dataset.join(df_violation_location_table)\
-    .where((df_ticket['Street Code1'] == df_violation_location_table['street_code1']) \
-    & (df_ticket['Street Code2'] == df_violation_location_table['street_code2']) \
-    & (df_ticket['Street Code3'] == df_violation_location_table['street_code3'])).dropDuplicates()
+    .where((ticket_dataset['Street Code1'] == df_violation_location_table['street_code1']) \
+    & (ticket_dataset['Street Code2'] == df_violation_location_table['street_code2']) \
+    & (ticket_dataset['Street Code3'] == df_violation_location_table['street_code3'])).dropDuplicates()
     
-    ticket_fact_df.write.parquet(output_data + "TicketTable.parquet")
+    ticket_fact_df.select(col('Summons Number').alias('summons_number'), col('Plate ID').alias('plate_id'), col('Issue Date').alias('issue_date'), col('Violation Code').alias('violation_code'), col('street_code_key')).write.parquet(output_data + "TicketTable.parquet")
 
 
 def main():
