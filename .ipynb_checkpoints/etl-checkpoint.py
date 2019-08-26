@@ -146,23 +146,41 @@ def create_fact_ticket_location_data(ticket_dataset, df_violation_location_table
     ticket_fact_df = ticket_dataset.join(df_violation_location_table)\
     .where((ticket_dataset['Street Code1'] == df_violation_location_table['street_code1']) \
     & (ticket_dataset['Street Code2'] == df_violation_location_table['street_code2']) \
-    & (ticket_dataset['Street Code3'] == df_violation_location_table['street_code3'])).dropDuplicates()
+    & (ticket_dataset['Street Code3'] == df_violation_location_table['street_code3']))
     
-    ticket_fact_df.select(col('Summons Number').alias('summons_number'), col('Plate ID').alias('plate_id'), col('Issue Date').alias('issue_date'), col('Violation Code').alias('violation_code'), col('street_code_key')).write.parquet(output_data + "TicketTable.parquet")
+    final_ticket_fact = ticket_fact_df.select(col('Summons Number').alias('summons_number'), col('Plate ID').alias('plate_id'), col('Issue Date').alias('issue_date'), col('Violation Code').alias('violation_code'), col('street_code_key')).dropDuplicates()
+    
+    final_ticket_fact.write.partitionBy('issue_date').parquet(output_data + "TicketTable.parquet")
 
 
 def main():
+    
+    #set up spark instance
     spark = create_spark_session()
+    
+    # read in data
     ticket_dataset = spark.read.format("csv").option("header", "true").load("parking-violations-issued-fiscal-year-2018.csv")
     df_ticket_code = spark.read.json("parking_violation codes.json", multiLine=True)
+    
+    # assign S3 bucket
     S3_bucket = "dump/"
     
+    # clean json data
     cleaned_json = clean_json(df_ticket_code, spark)
-    process_vehicle_data(ticket_dataset,  S3_bucket)
-    process_registration_data(ticket_dataset,  S3_bucket)
+    
+    # create tables
+    process_vehicle_table = process_vehicle_data(ticket_dataset,  S3_bucket)
+    process_registration_table = process_registration_data(ticket_dataset,  S3_bucket)
     df_violation_location_table = process_violation_location_data(ticket_dataset,  S3_bucket)
-    process_codes_data(ticket_dataset, cleaned_json, S3_bucket)
-    create_fact_ticket_location_data(ticket_dataset, df_violation_location_table, S3_bucket)
+    process_codes_table = process_codes_data(ticket_dataset, cleaned_json, S3_bucket)
+    create_fact_ticket_location_table = create_fact_ticket_location_data(ticket_dataset, df_violation_location_table, S3_bucket)
+    
+    # quality check
+    is_data_quality_good(process_vehicle_table, "process_vehicle_table")
+    is_data_quality_good(process_registration_table, "process_registration_table")
+    is_data_quality_good(df_violation_location_table, "df_violation_location_table")
+    is_data_quality_good(process_codes_table, "process_codes_table")
+    is_data_quality_good(create_fact_ticket_location_table, "create_fact_ticket_location_table")
 
 if __name__ == "__main__":
     main()
