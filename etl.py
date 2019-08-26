@@ -176,7 +176,7 @@ def main():
     df_ticket_code = spark.read.json("parking_violation codes.json", multiLine=True)
     
     # assign S3 bucket
-    S3_bucket = "dump/"
+    S3_bucket = ""
     
     # clean json data
     cleaned_json = clean_json(df_ticket_code, spark)
