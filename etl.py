@@ -10,18 +10,18 @@ from pyspark.sql.functions import year, month, dayofmonth, hour, weekofyear, dat
 config = configparser.ConfigParser()
 config.read('dl.cfg')
 
-os.environ['AWS_ACCESS_KEY_ID']=config.get('S3', 'AWS_ACCESS_KEY_ID')
-os.environ['AWS_SECRET_ACCESS_KEY']=config.get('S3', 'AWS_SECRET_ACCESS_KEY')
+# os.environ['AWS_ACCESS_KEY_ID']=config.get('S3', 'AWS_ACCESS_KEY_ID')
+# os.environ['AWS_SECRET_ACCESS_KEY']=config.get('S3', 'AWS_SECRET_ACCESS_KEY')
 
 
 def create_spark_session():
     spark = SparkSession \
-        .builder \
-        .config("spark.jars.packages", "org.apache.hadoop:hadoop-aws:2.7.0") \
-        .getOrCreate()
+            .builder \
+            .appName("Capstone Cluster") \
+            .getOrCreate()
     return spark
 
-def clean_json(json):
+def clean_json(json, spark):
     code_list = []
     definition_list = []
     
@@ -40,7 +40,7 @@ def clean_json(json):
 
 def is_data_quality_good(table_dataset, table_name):
    
-    if table_dataset.count() = 0:
+    if table_dataset.count() == 0:
         print(r"{} Empty Table").format(table_name)
         return False
     
@@ -67,7 +67,7 @@ def process_vehicle_data(ticket_dataset, output_data):
                                              ,col('Vehicle Color').alias('vehicle_color')\
                                              ,col('Vehicle Year').alias('vehicle_year')).dropDuplicates()
     
-    df_vehicle_table.parquet(output_data + "VehicleTable.parquet")
+    df_vehicle_table.write.parquet(output_data + "VehicleTable.parquet")
     
     return df_vehicle_table
 
@@ -85,7 +85,7 @@ def process_registration_data(ticket_dataset, output_data):
                                                   ,col('Vehicle Expiration Date').alias('registration_expired_date')\
                                                   ,col('Unregistered Vehicle?').alias('unregistered_vehicle')).dropDuplicates()
     
-    df_registration_table.parquet(output_data + "RegistrationTable.parquet")
+    df_registration_table.write.parquet(output_data + "RegistrationTable.parquet")
     
     
     return df_registration_table
@@ -99,9 +99,9 @@ def process_violation_location_data(ticket_dataset, output_data):
     """
     
     df_violation_location_table = ticket_dataset.select(col('Street Code1').alias('street_code1')
-                                                        , col('Street Code2').alias('street_code2')\
+                                                        ,col('Street Code2').alias('street_code2')\
                                                         ,col('Street Code3').alias('street_code3')
-                                                        , col('Violation Precinct').alias('violation_precinct')\
+                                                        ,col('Violation Precinct').alias('violation_precinct')\
                                                         ,col('Violation County').alias('violation_county')\
                                                         ,col('House Number').alias('house_number')\
                                                         ,col('Street Name').alias('street_name') \
@@ -111,9 +111,13 @@ def process_violation_location_data(ticket_dataset, output_data):
     
     
     df_violation_location_table = df_violation_location_table.withColumn("street_code_key", \
-                                    concat(col("street_code1"), lit('-'),col("street_code2"), lit('-'),col("street_code3"))).dropDuplicates()
+                                    concat(col("street_code1")\
+                                           ,lit('-')\
+                                           ,col("street_code2")\
+                                           ,lit('-')\
+                                           ,col("street_code3"))).dropDuplicates()
     
-    df_violation_location_table.parquet(output_data + "ViolationLocationTable.parquet")
+    df_violation_location_table.write.parquet(output_data + "ViolationLocationTable.parquet")
     
     return df_violation_location_table
     
@@ -126,12 +130,12 @@ def process_codes_data(ticket_dataset, df_codes_spark, output_data):
     """
     
     df_codes_joined_spark = df_codes_spark.join(\
-                            df_ticket.select(col('Law Section').alias('law_section'),\
+                            ticket_dataset.select(col('Law Section').alias('law_section'),\
                                              col('Sub Division').alias('sub_division'),\
                                              col('Violation Code').alias('violation_code')))\
-                            .where(df_ticket['Violation Code'] == df_codes_spark['Code']).dropDuplicates()
+                            .where(ticket_dataset['Violation Code'] == df_codes_spark['Code']).dropDuplicates()
     
-    df_codes_joined_spark.parquet(output_data + "CodesTable.parquet")
+    df_codes_joined_spark.write.parquet(output_data + "CodesTable.parquet")
     
     
 def create_fact_ticket_location_data(ticket_dataset, df_violation_location_table, output_data):
@@ -147,16 +151,16 @@ def create_fact_ticket_location_data(ticket_dataset, df_violation_location_table
     & (df_ticket['Street Code2'] == df_violation_location_table['street_code2']) \
     & (df_ticket['Street Code3'] == df_violation_location_table['street_code3'])).dropDuplicates()
     
-    ticket_fact_df.parquet(output_data + "TicketTable.parquet")
+    ticket_fact_df.write.parquet(output_data + "TicketTable.parquet")
 
 
 def main():
     spark = create_spark_session()
     ticket_dataset = spark.read.format("csv").option("header", "true").load("parking-violations-issued-fiscal-year-2018.csv")
     df_ticket_code = spark.read.json("parking_violation codes.json", multiLine=True)
-    S3_bucket = ""
+    S3_bucket = "dump/"
     
-    cleaned_json = clean_json(df_ticket_code)
+    cleaned_json = clean_json(df_ticket_code, spark)
     process_vehicle_data(ticket_dataset,  S3_bucket)
     process_registration_data(ticket_dataset,  S3_bucket)
     df_violation_location_table = process_violation_location_data(ticket_dataset,  S3_bucket)
